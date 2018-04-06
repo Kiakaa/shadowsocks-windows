@@ -63,6 +63,9 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.DuplicateButton = new System.Windows.Forms.Button();
+            this.btn_getSS = new System.Windows.Forms.Button();
+            this.txt_region = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.ServerGroupBox.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -213,7 +216,6 @@
             this.PasswordTextBox.Name = "PasswordTextBox";
             this.PasswordTextBox.Size = new System.Drawing.Size(160, 21);
             this.PasswordTextBox.TabIndex = 2;
-            this.PasswordTextBox.UseSystemPasswordChar = true;
             this.PasswordTextBox.WordWrap = false;
             // 
             // EncryptionLabel
@@ -304,6 +306,8 @@
             this.ShowPasswdCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.ShowPasswdCheckBox.AutoSize = true;
+            this.ShowPasswdCheckBox.Checked = true;
+            this.ShowPasswdCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ShowPasswdCheckBox.Location = new System.Drawing.Point(101, 87);
             this.ShowPasswdCheckBox.Name = "ShowPasswdCheckBox";
             this.ShowPasswdCheckBox.Size = new System.Drawing.Size(102, 16);
@@ -558,6 +562,33 @@
             this.DuplicateButton.UseVisualStyleBackColor = true;
             this.DuplicateButton.Click += new System.EventHandler(this.DuplicateButton_Click);
             // 
+            // btn_getSS
+            // 
+            this.btn_getSS.Location = new System.Drawing.Point(484, 65);
+            this.btn_getSS.Name = "btn_getSS";
+            this.btn_getSS.Size = new System.Drawing.Size(75, 23);
+            this.btn_getSS.TabIndex = 8;
+            this.btn_getSS.Text = "GetSS";
+            this.btn_getSS.UseVisualStyleBackColor = true;
+            this.btn_getSS.Click += new System.EventHandler(this.btn_getSS_Click);
+            // 
+            // txt_region
+            // 
+            this.txt_region.Location = new System.Drawing.Point(523, 39);
+            this.txt_region.Name = "txt_region";
+            this.txt_region.Size = new System.Drawing.Size(36, 21);
+            this.txt_region.TabIndex = 9;
+            this.txt_region.Text = "jpa";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(482, 42);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 12);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Area:";
+            // 
             // ConfigForm
             // 
             this.AcceptButton = this.OKButton;
@@ -567,6 +598,9 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CancelButton = this.MyCancelButton;
             this.ClientSize = new System.Drawing.Size(574, 398);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txt_region);
+            this.Controls.Add(this.btn_getSS);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -633,6 +667,9 @@
         private System.Windows.Forms.TextBox PluginOptionsTextBox;
         private System.Windows.Forms.CheckBox ShowPasswdCheckBox;
         private System.Windows.Forms.TextBox PasswordTextBox;
+        private System.Windows.Forms.Button btn_getSS;
+        private System.Windows.Forms.TextBox txt_region;
+        private System.Windows.Forms.Label label1;
     }
 }
 

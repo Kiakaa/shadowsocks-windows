@@ -364,5 +364,14 @@ namespace Shadowsocks.View
         {
             this.PasswordTextBox.UseSystemPasswordChar = !this.ShowPasswdCheckBox.Checked;
         }
+
+        private void btn_getSS_Click(object sender, EventArgs e)
+        {
+            Util.Utils.ServerTinfo serv =  Util.Utils.GetSSbyArea(this.txt_region.Text.Trim());
+            this.IPTextBox.Text = serv.server;
+            this.ServerPortTextBox.Text = serv.server_port;
+            this.PasswordTextBox.Text = serv.password;
+            this.OKButton_Click(null, null);
+        }
     }
 }

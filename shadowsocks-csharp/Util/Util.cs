@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Microsoft.Win32;
 using Shadowsocks.Controller;
+using HtmlAgilityPack;
 
 namespace Shadowsocks.Util
 {
@@ -254,6 +255,39 @@ namespace Shadowsocks.Util
                 }
             }
             return false;
+        }
+
+        public class ServerTinfo
+        {
+            public string server;
+            public string server_port;
+            public string password;
+            public ServerTinfo(string _server, string _port, string _pwd)
+            {
+                this.server = _server;
+                this.password = _pwd;
+                this.server_port = _port;
+            }
+        }
+        public static ServerTinfo GetSSbyArea(string area)
+        {
+            //view-source:https://get.ishadowx.net/#portfolio
+            //https://get.ishadowx.net/#portfolio
+
+            string url = "https://get.ishadowx.net/#portfolio";
+
+            var web1 = new HtmlWeb();
+            var doc1 = web1.LoadFromBrowser(url, o =>
+            {
+                var webBrowser = (WebBrowser)o;
+
+                // WAIT until the dynamic text is set
+                return !string.IsNullOrEmpty(webBrowser.Document.GetElementById("portfolio").InnerText);
+            });
+            string server = doc1.DocumentNode.SelectSingleNode("//span[@id='ip" + area + "']").InnerText.Trim();
+            string port = doc1.DocumentNode.SelectSingleNode("//span[@id='port" + area + "']").InnerText.Trim();
+            string password = doc1.DocumentNode.SelectSingleNode("//span[@id='pw" + area + "']").InnerText.Trim();
+            return new ServerTinfo(server, port, password);
         }
     }
 }
